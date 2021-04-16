@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Posts</h1>
+
+<table class ="table">
+  <thead>
+    <tr>
+      <th scope="col"></th>
+      <th scope="col">Username</th>
+      <th scope="col">Body</th>
+      <th scope="col">Likes count</th>
+      <th scope="col">Reposts count</th>
+      
+    </tr>
+  </thead>
+
+  <tbody>
+   
+  </tbody>
+</table>
+
+<br>
+<%= render 'form', post: @post %>
+<div id="timeline>
+<%= render partial: 'post', collection: @posts %>
+
+</div>
