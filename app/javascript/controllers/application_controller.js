@@ -1,7 +1,9 @@
 import { Controller } from 'stimulus'
 import StimulusReflex from 'stimulus_reflex'
-
-/* This is your ApplicationController.
+document.addEventListener('cable-ready:after-insert-adjacent-html', () =>
+  setTimeout(StimulusReflex.setupDeclarativeReflexes, 1)
+)
+/* This is your application's ApplicationController.
  * All StimulusReflex controllers should inherit from this class.
  *
  * Example:
@@ -16,9 +18,7 @@ export default class extends Controller {
   connect () {
     StimulusReflex.register(this)
   }
-
-  /* Application-wide lifecycle methods
-   *
+  /* Application wide lifecycle methods.
    * Use these methods to handle lifecycle concerns for the entire application.
    * Using the lifecycle is optional, so feel free to delete these stubs if you don't need them.
    *
@@ -27,34 +27,20 @@ export default class extends Controller {
    *   element - the element that triggered the reflex
    *             may be different than the Stimulus controller's this.element
    *
-   *   reflex - the name of the reflex e.g. "Example#demo"
+   *   reflex - the name of the reflex e.g. "ExampleReflex#demo"
    *
-   *   error/noop - the error message (for reflexError), otherwise null
-   *
-   *   reflexId - a UUID4 or developer-provided unique identifier for each Reflex
+   *   error - error message from the server
    */
-
-  beforeReflex (element, reflex, noop, reflexId) {
+  beforeReflex (element, reflex) {
     // document.body.classList.add('wait')
   }
-
-  reflexSuccess (element, reflex, noop, reflexId) {
-    // show success message
+  reflexSuccess (element, reflex, error) {
+    // show success message etc...
   }
-
-  reflexError (element, reflex, error, reflexId) {
-    // show error message
+  reflexError (element, reflex, error) {
+    // show error message etc...
   }
-
-  reflexHalted (element, reflex, error, reflexId) {
-    // handle aborted Reflex action
-  }
-
-  afterReflex (element, reflex, noop, reflexId) {
+  afterReflex (element, reflex) {
     // document.body.classList.remove('wait')
-  }
-
-  finalizeReflex (element, reflex, noop, reflexId) {
-    // all operations have completed, animation etc is now safe
   }
 }

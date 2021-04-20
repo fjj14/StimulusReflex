@@ -227,7 +227,6 @@ DEPENDENCIES
   sqlite3 (~> 1.4)
   stimulus_reflex (~> 3.4)
   turbolinks (~> 5)
-  tzinfo-data
   web-console (>= 4.1.0)
   webdrivers
   webpacker (~> 5.0)
